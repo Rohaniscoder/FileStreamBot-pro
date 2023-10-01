@@ -9,27 +9,6 @@ from Adarsh import StartTime
 
 START_TEXT = """ Your Telegram DC Is : `{}`  """
 
-
-@Client.on_message(filters.regex("maintainers😎"))
-async def maintainers(b,m):
-    try:
-       await b.send_message(chat_id=m.chat.id,text="HELLO",quote=True)
-    except Exception:
-                await b.send_message(
-                    chat_id=m.chat.id,
-                    text="I am Coded By [Adarsh Goel](https://github.com/adarsh-goel)",
-                    
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton("Developer💻", url=f"https://github.com/adarsh-goel")
-                            ]
-                        ]
-                    ),
-                    
-                    disable_web_page_preview=True)
-            
-         
 @StreamBot.on_message(filters.regex("follow❤️"))
 async def follow_user(b,m):
     try:
@@ -54,8 +33,7 @@ async def follow_user(b,m):
 async def start(bot, update):
     text = START_TEXT.format(update.from_user.dc_id)
     await update.reply_text(
-        text=text,
-        disable_web_page_preview=True,
+        text=text,        
         quote=True
     )
 
